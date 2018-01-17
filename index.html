@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>codesnippetsAPI</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;http&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="http">http</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -226,84 +223,163 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP Request">HTTP Request</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#query-parameters" class="toc-h2 toc-link" data-title="Query Parameters">Query Parameters</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#snippets" class="toc-h1 toc-link" data-title="Snippets">Snippets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-snippets" class="toc-h2 toc-link" data-title="Get All Snippets">Get All Snippets</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-snippet" class="toc-h2 toc-link" data-title="Get a Specific Snippet">Get a Specific Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-snippet" class="toc-h2 toc-link" data-title="Create a Snippet">Create a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-snippet" class="toc-h2 toc-link" data-title="Update a Snippet">Update a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-snippet" class="toc-h2 toc-link" data-title="Delete a Specific Snippet">Delete a Specific Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#search-on-snippets" class="toc-h2 toc-link" data-title="Search on Snippets">Search on Snippets</a>
+                  </li>
+                  <li>
+                    <a href="#upvote-a-snippet" class="toc-h2 toc-link" data-title="Upvote a Snippet">Upvote a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#downvote-a-snippet" class="toc-h2 toc-link" data-title="Downvote a Snippet">Downvote a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#bookmark-a-snippet" class="toc-h2 toc-link" data-title="Bookmark a Snippet">Bookmark a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#download-a-snippet" class="toc-h2 toc-link" data-title="Download a Snippet">Download a Snippet</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#comments" class="toc-h1 toc-link" data-title="Comments">Comments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-comments-on-a-snippet" class="toc-h2 toc-link" data-title="Get All Comments on a Snippet">Get All Comments on a Snippet</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-comment" class="toc-h2 toc-link" data-title="Get a specific Comment">Get a specific Comment</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-comment" class="toc-h2 toc-link" data-title="Create a Comment">Create a Comment</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-comment" class="toc-h2 toc-link" data-title="Update a Comment">Update a Comment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="Users">Users</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-users" class="toc-h2 toc-link" data-title="Get All Users">Get All Users</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-user" class="toc-h2 toc-link" data-title="Get a Specific User">Get a Specific User</a>
+                  </li>
+                  <li>
+                    <a href="#get-snippets-of-user" class="toc-h2 toc-link" data-title="Get Snippets of User">Get Snippets of User</a>
+                  </li>
+                  <li>
+                    <a href="#get-bookmarks-of-user" class="toc-h2 toc-link" data-title="Get Bookmarks of User">Get Bookmarks of User</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#api-clients" class="toc-h1 toc-link" data-title="API Clients">API Clients</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/amandeep511997/codesnippetsAPI'>codesnippets API on Github</a></li>
+            <li>Documentation Powered by <a href='https://github.com/lord/slate'>Slate</a></li>
+            <li>Hosted using <a href="https://pages.github.com/">GitHubPages</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the <a href="http://codesnippets.org/"><strong>codesnippets</strong></a> API! documentation. This is a RESTful API using which you can get information on various snippets and users in our database. You can view code examples in the dark area to the right.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<aside class="notice" style="font-weight: bold;"> 
+Our most recent API is V1.
+</aside>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
+<pre class="highlight http tab-http"><code><span class="err"># With http, you can just pass the correct header with each request
+curl "api_endpoint_here"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
 <blockquote>
 <p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
 </blockquote>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+<aside class="success" style="font-weight: bold;">
+Remember — a happy user is an authenticated user!
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right once you have the account registered. If you are a new member you can register <a href="http://codesnippets.org/users/sign_up">here</a>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST http://codesnippets.org/api/v1/auth/login</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Your registered email address.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Password of your registered account.</td>
+</tr>
+</tbody></table>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p><br></p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<aside class="notice" style="font-weight: bold;">
+    This token gets expired in 24hrs, and you need to login again after that to issue a new token.
+</aside>
+
+<p>codesnippets expects for the API access token to be included in some API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: [your-auth-token]</code></p>
+
+<p>In the future, we are planning to add a proper OAuth handshake for third party applications.</p>
+
+<aside class="notice" style="font-weight: bold;">
+You must replace <code>[your-auth-token]</code> with your personal API access token.
+</aside>
+<h1 id='snippets'>Snippets</h1><h2 id='get-all-snippets'>Get All Snippets</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -324,47 +400,33 @@ You must replace <code>meowmeowmeow</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint retrieves all the public snippets.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>GET http://codesnippets.org/api/v1/snippets</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
+<p>Parameters can be set for pagination.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>page</td>
+<td>integer</td>
+<td>Set this to get snippets on a particular page number. It is None by default.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>per_page</td>
+<td>integer</td>
+<td>Set this for limiting the number of snippets per page. It is None by default.</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+<h2 id='get-a-specific-snippet'>Get a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -376,39 +438,197 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>This endpoint retrieves a specific snippet. </p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<aside class="notice" style="font-weight: bold;">
+You can access any private snippet of the authenticated user by passing the authentication token in header.<br> 
+You may not pass the authentication token to get a public snippet.
+</aside>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to retrieve.</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='create-a-snippet'>Create a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new snippet for authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://codesnippets.org/api/v1/snippets</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<aside class="warning" style="font-weight: bold;">
+If you don't pass all the Required parameters, you will get a validation error message, that parameter can't be blank. With status 422 - unprocessible entity. 
+</aside>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<table><thead>
+<tr>
+<th>Required Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>The &#39;title&#39; of the snippet to be created.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>text</td>
+<td>The &#39;description&#39; about the snippet to be created.</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>The &#39;language&#39; of the snippet.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>text</td>
+<td>The &#39;code&#39; of the snippet to be created.</td>
+</tr>
+</tbody></table>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
+<p><br></p>
+
+<table><thead>
+<tr>
+<th>Optional Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>version</td>
+<td>decimal</td>
+<td>The &#39;version&#39; of the language of snippet.</td>
+</tr>
+<tr>
+<td>tag_names</td>
+<td>string</td>
+<td>The &#39;tags&#39; of the snippet to be created.</td>
+</tr>
+<tr>
+<td>private</td>
+<td>boolean</td>
+<td>Creates a public snippet by default. If &#39;true&#39; creates a private snippet.</td>
+</tr>
+</tbody></table>
+<h3 id='some-important-instructions'>Some Important Instructions</h3>
+<ol>
+<li>codesnippets is NOT a Debugging tool; it is intended for finished, working pieces of code.</li>
+<li>By posting a public snippet, you agree to let anyone make use of the code.</li>
+<li>You can use Markdown syntax for description, but raw HTML will be removed. Guide about markdown <a href="https://guides.github.com/features/mastering-markdown/">here</a>.</li>
+<li>Use spaces between tag names, and hyphens for multiple words, example - &quot;tag1 tag2 tag3-with-long-name&quot;</li>
+<li>Private snippet will not be visible to other users, and will only be shown on your profile.</li>
+</ol>
+<h2 id='update-a-snippet'>Update a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an existing snippet of authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<aside class="warning" style="font-weight: bold;">
+If you don't pass the id, you may get an unexpected response.
+</aside>
+
+<table><thead>
+<tr>
+<th>Required Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be updated.</td>
+</tr>
+</tbody></table>
+
+<p><br></p>
+
+<table><thead>
+<tr>
+<th>Optional Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>The &#39;title&#39; of the snippet to be updated.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>text</td>
+<td>The &#39;description&#39; about the snippet to be updated.</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>The &#39;language&#39; of the snippet.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>text</td>
+<td>The &#39;code&#39; of the snippet to be updated.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>decimal</td>
+<td>The &#39;version&#39; of the language of snippet.</td>
+</tr>
+<tr>
+<td>tag_names</td>
+<td>string</td>
+<td>The &#39;tags&#39; of the snippet to be created.</td>
+</tr>
+<tr>
+<td>private</td>
+<td>boolean</td>
+<td>Creates a public snippet by default. If &#39;true&#39; creates a private snippet.</td>
+</tr>
+</tbody></table>
+<h2 id='delete-a-specific-snippet'>Delete a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
   -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -417,21 +637,507 @@ Remember — a happy kitten is an authenticated kitten!
   </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p>This endpoint deletes a specific snippet of authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<aside class="success" style="font-weight: bold;">
+A successful deletion returns with status 204.
+</aside>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be deleted.</td>
 </tr>
 </tbody></table>
+<h2 id='search-on-snippets'>Search on Snippets</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint searches all snippets for the passed parameters.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;search&gt;</code></p>
+<h3 id='url-parameters-5'>URL Parameters</h3>
+<aside class="notice" style="font-weight: bold;">
+Empty search parameter will return all public snippets
+</aside>
+
+<p>Parameters can be set for pagination.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>search</td>
+<td>string</td>
+<td>Returns all snippets having content related to search parameters.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Set this to get snippets on a particular page number. It is None by default.</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>Set this for limiting the number of snippets per page. It is None by default.</td>
+</tr>
+</tbody></table>
+<h3 id='content-which-can-be-searched-upon'>Content which can be searched upon</h3>
+<ul>
+<li>Title of snippet</li>
+<li>Description of snippet</li>
+<li>Language of snippet</li>
+<li>Tags of snippet</li>
+<li>Comments on snippet</li>
+</ul>
+<h2 id='upvote-a-snippet'>Upvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can be used to upvote a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote</code></p>
+<h3 id='url-parameters-6'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be upvoted.</td>
+</tr>
+</tbody></table>
+<h2 id='downvote-a-snippet'>Downvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can be used to downvote a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote</code></p>
+<h3 id='url-parameters-7'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be downvoted.</td>
+</tr>
+</tbody></table>
+<h2 id='bookmark-a-snippet'>Bookmark a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can be used to bookmark a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/bookmark</code></p>
+<h3 id='url-parameters-8'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be bookmarked.</td>
+</tr>
+</tbody></table>
+<h2 id='download-a-snippet'>Download a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -X DELETE
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can be used to get a download link of a snippet. For a download link of a private snippet, you need to pass the authentication token in headers.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download</code></p>
+<h3 id='url-parameters-9'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet to be downloaded.</td>
+</tr>
+</tbody></table>
+<h1 id='comments'>Comments</h1><h2 id='get-all-comments-on-a-snippet'>Get All Comments on a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all the comments on a public snippets. For fetching comments on a private snippet you need to pass authentication token in headers.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>snippet_id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet whose comments you want to retrieve.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-comment'>Get a specific Comment</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific comment on a specific snippet. For fetching a specific comment on a private snippet you need to pass authentication token in headers.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/commments/&lt;id&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>snippet_id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet whose comment you want to retrieve.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the comment you want to retrieve.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-comment'>Create a Comment</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates a new comment on a snippet for authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<aside class="warning" style="font-weight: bold;">
+If you don't pass the text parameter, you will get a validation error message, that text can't be blank. With status 422 - unprocessible entity. 
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>snippet_id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet on which you want to comment</td>
+</tr>
+<tr>
+<td>text</td>
+<td>text</td>
+<td>Content of the comment to be created.</td>
+</tr>
+</tbody></table>
+
+<p><em>You may use Markdown syntax in text parameter, but raw HTML will be removed.</em></p>
+<h2 id='update-a-comment'>Update a Comment</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint updates an existing comment on a snippet of authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments/&lt;id&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<aside class="notice" style="font-weight: bold;">
+Obviously, you can update comments created by the authenticated user only.
+</aside>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>snippet_id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the snippet on which you want to update comment.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the comment you want to update.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>text</td>
+<td>Content of the updated comment.</td>
+</tr>
+</tbody></table>
+<h1 id='users'>Users</h1><h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all the registered users, excluding the archived users. </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/users</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>Parameters can be set for pagination.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Set this to get users on a particular page number. It is None by default.</td>
+</tr>
+<tr>
+<td>per_page</td>
+<td>integer</td>
+<td>Set this for limiting the number of users per page. It is None by default.</td>
+</tr>
+</tbody></table>
+<h2 id='get-a-specific-user'>Get a Specific User</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves details of a specific user. </p>
+
+<aside class="notice" style="font-weight: bold;">
+You can get details of an archived user also.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/users/&lt;id&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the user.</td>
+</tr>
+</tbody></table>
+<h2 id='get-snippets-of-user'>Get Snippets of User</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all public snippets of a user. If the requested user is authenticated user then this request returns both public and private snippets of the user, and in this case you need to pass the authentication token in headers.  </p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/users/&lt;id&gt;/snippets</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the user.</td>
+</tr>
+</tbody></table>
+<h2 id='get-bookmarks-of-user'>Get Bookmarks of User</h2><pre class="highlight http tab-http"><code><span class="err">curl "http://example.com/api/kittens/2"
+  -H "Authorization: meowmeowmeow"
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all the bookmarks of the authenticated user. Requires authentication token to be passed in headers. </p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://codesnippets.org/api/v1/users/&lt;id&gt;/bookmarks</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>The &#39;id&#39; of the user.</td>
+</tr>
+</tbody></table>
+<h1 id='api-clients'>API Clients</h1>
+<p>Currently, there are no API clients for interacting with the codesnippets API.</p>
+
+<p>If you want you may build one and add it here! for contributing see <a href="https://github.com/amandeep511997/codesnippetsAPI">here</a>.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
@@ -492,10 +1198,7 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="http">http</a>
           </div>
       </div>
     </div>
