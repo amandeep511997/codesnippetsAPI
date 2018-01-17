@@ -5,13 +5,16 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - http
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/amandeep511997/codesnippetsAPI'>codesnippets API on Github</a>
+  - Documentation Powered by <a href='https://github.com/lord/slate'>Slate</a>
+  - Hosted using <a href="https://pages.github.com/">GitHubPages</a>
 
 includes:
   - authentication
   - snippets
   - comments
+  - users
+  - api_clients
   - errors
 
 search: true
@@ -24,8 +27,3 @@ Welcome to the [**codesnippets**](http://codesnippets.org/) API! documentation. 
 <aside class="notice" style="font-weight: bold;"> 
 Our most recent API is V1.
 </aside>
-
-
-
-
-
