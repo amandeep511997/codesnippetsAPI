@@ -40,11 +40,10 @@ This endpoint retrieves all the public snippets.
 
 Parameters can be set for pagination.
 
-Parameter | Default | Description
---------- | ------- | -----------
-page | None | Set this to get snippets on a particular page number. 
-per_page | None | Set this for limiting the number of snippets per page.
-
+Parameter | Data Type | Description
+--------- | ----------| ------------
+page | integer | Set this to get snippets on a particular page number. It is None by default.
+per_page | integer | Set this for limiting the number of snippets per page. It is None by default.
 
 
 ## Get a Specific Snippet
@@ -113,7 +112,7 @@ This endpoint creates a new snippet for authenticated user. Requires authenticat
 ### URL Parameters
 
 <aside class="warning" style="font-weight: bold;">
-If you don't pass all the Required parameters, you may get a validation error message, that parameter can't be blank. With status 422 - unprocessible entity. 
+If you don't pass all the Required parameters, you will get a validation error message, that parameter can't be blank. With status 422 - unprocessible entity. 
 </aside>
 
 Required Parameter | Data Type | Description
@@ -251,9 +250,13 @@ This endpoint searches all snippets for the passed parameters.
 Empty search parameter will return all public snippets
 </aside>
 
+Parameters can be set for pagination.
+
 Parameter | Data Type | Description
 --------- | ----------| ------------
-search | text | Returns all snippets having content related to search parameters. 
+search | string | Returns all snippets having content related to search parameters. 
+page | integer | Set this to get snippets on a particular page number. It is None by default.
+per_page | integer | Set this for limiting the number of snippets per page. It is None by default.
 
 ### Content which can be searched upon
 * Title of snippet
