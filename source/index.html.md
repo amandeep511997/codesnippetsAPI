@@ -3,6 +3,7 @@ title: codesnippetsAPI
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - http
+  - shell
 
 toc_footers:
   - <a href='https://github.com/amandeep511997/codesnippetsAPI'>codesnippets API on Github</a>
@@ -14,8 +15,7 @@ includes:
   - snippets
   - comments
   - users
-  - api_clients
-  - errors
+  - contribute
 
 search: true
 ---
@@ -27,3 +27,5 @@ Welcome to the [**codesnippets**](http://codesnippets.org/) API! documentation. 
 <aside class="notice" style="font-weight: bold;"> 
 Our most recent API is V1.
 </aside>
+
+Currently there are no API Clients. You can make request using curl or use [httpie](https://httpie.org/doc#installation).

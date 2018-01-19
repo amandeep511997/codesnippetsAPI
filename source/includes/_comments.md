@@ -4,30 +4,37 @@
 
 
 ```http
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+http GET http://codesnippets.org/api/v1/snippets/3/commments
 ```
 
+```shell
+curl "http://codesnippets.org/api/v1/snippets/3/commments"
+```
 
-> The above command returns JSON structured like this:
+> The above command returns JSON structured like this - status 200:
 
 ```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+{
+    "comments": [
+        {
+            "author_id": 2,
+            "created_at": "2017-12-26T05:32:59.888Z",
+            "id": 2,
+            "snippet_id": 3,
+            "text": "This is a useful snippet\r\n",
+            "updated_at": "2017-12-26T05:32:59.888Z"
+        },
+        {
+            "author_id": 1,
+            "created_at": "2018-01-13T16:56:25.310Z",
+            "id": 3,
+            "snippet_id": 3,
+            "text": "I found it helpful! Thanks :)",
+            "updated_at": "2018-01-13T16:56:25.310Z"
+        }
+    ]
+}
+
 ```
 
 This endpoint retrieves all the comments on a public snippets. For fetching comments on a private snippet you need to pass authentication token in headers.
@@ -42,23 +49,32 @@ Parameter | Data Type | Description
 ----------- | ----------| ------------
 snippet_id | integer | The 'id' of the snippet whose comments you want to retrieve.
 
+### Status 
+* 200 - OK
+
 ## Get a specific Comment
 
-
 ```http
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+http GET http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
+```
+
+```shell
+curl "http://codesnippets.org/api/v1/snippets/3/commments/2"
+  -H "Authorization:[user-auth-token]"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "comment": {
+        "author_id": 2,
+        "created_at": "2017-12-26T05:32:59.888Z",
+        "id": 2,
+        "snippet_id": 3,
+        "text": "This is a useful snippet\r\n",
+        "updated_at": "2017-12-26T05:32:59.888Z"
+    }
 }
 ```
 
@@ -76,23 +92,45 @@ Parameter | Data Type | Description
 snippet_id | integer | The 'id' of the snippet whose comment you want to retrieve.
 id | integer | The 'id' of the comment you want to retrieve.
 
+### Status
+* 200 - OK
+* 404 - Not Found
+
 ## Create a Comment
 
 ```http
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+http POST http://codesnippets.org/api/v1/snippets/3/comments text="This snippet is cool!" "Authorization:[user-auth-token]"
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "http://codesnippets.org/api/v1/snippets/3/comments"
+  -X POST
+  -H "Authorization:[user-auth-token]"
+  -d { "text":"This snippet is cool!" }
+```
+
+> The above command returns JSON structured like this - status 201:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "comment": {
+        "author_id": 2,
+        "created_at": "2018-01-18T16:20:24.428Z",
+        "id": 4,
+        "snippet_id": 3,
+        "text": "This snippet is cool!",
+        "updated_at": "2018-01-18T16:20:24.594Z"
+    }
 }
+```
+
+> The above command returns JSON structured like this - status 422:
+
+```json
+{
+    "message": "Validation failed: Text can't be blank"
+}
+
 ```
 
 This endpoint creates a new comment on a snippet for authenticated user. Requires authentication token to be passed in headers. 
@@ -114,23 +152,31 @@ text | text | Content of the comment to be created.
 
 *You may use Markdown syntax in text parameter, but raw HTML will be removed.*
 
+### Status
+* 201 - Created
+* 422 - Unprocessable Entity - Errors related to validations.
+
+
 ## Update a Comment
 
 ```http
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+http PUT http://codesnippets.org/api/v1/snippets/3/comments/4 text="" "Authorization: [user-auth-token]"
 ```
 
-> The above command returns JSON structured like this:
+```shell
+curl "http://codesnippets.org/api/v1/snippets/3/comments/4"
+  -X PUT
+  -H "Authorization: [user-auth-token]"
+  -d { text:"" }
+```
+
+> The above command returns JSON structured like this - status 422:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "message": "Validation failed: Text can't be blank"
 }
+
 ```
 
 This endpoint updates an existing comment on a snippet of authenticated user. Requires authentication token to be passed in headers. 
@@ -151,3 +197,6 @@ snippet_id | integer | The 'id' of the snippet on which you want to update comme
 id | integer | The 'id' of the comment you want to update. 
 text | text | Content of the updated comment. 
 
+### Status
+* 204 - No Content - Successfully Updated
+* 422 - Unprocessable Entity - Errors related to validations
