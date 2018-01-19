@@ -306,6 +306,9 @@
               </ul>
           </li>
           <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+          <li>
             <a href="#contribute" class="toc-h1 toc-link" data-title="Contribute">Contribute</a>
               <ul class="toc-list-h2">
                   <li>
@@ -361,7 +364,7 @@ Our most recent API is V1.
 Remember — a happy user is an authenticated user!
 </aside>
 
-<p>To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right once you have the account registered. If you are a new member you can register <a href="http://codesnippets.org/users/sign_up">here</a>.</p>
+<p>To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register <a href="http://codesnippets.org/users/sign_up">here</a>.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST http://codesnippets.org/api/v1/auth/login</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -402,7 +405,88 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 </aside>
 
 <p>In the future, we are planning to add a proper OAuth handshake for third party applications.</p>
-<h1 id='snippets'>Snippets</h1><h2 id='get-all-snippets'>Get All Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets
+<h1 id='snippets'>Snippets</h1>
+<p>Following are the attributes available on the snippet entity.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Id of the snippet</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Title of the snippet</td>
+</tr>
+<tr>
+<td>description</td>
+<td>text</td>
+<td>Description of the snippet</td>
+</tr>
+<tr>
+<td>code</td>
+<td>text</td>
+<td>Code of the snippet</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>Programming Language of the snippet</td>
+</tr>
+<tr>
+<td>version</td>
+<td>decimal</td>
+<td>Version of the language</td>
+</tr>
+<tr>
+<td>bookmark_count</td>
+<td>integer</td>
+<td>Number of users who have bookmarked</td>
+</tr>
+<tr>
+<td>upvotes</td>
+<td>integer</td>
+<td>Number of upvotes on snippet</td>
+</tr>
+<tr>
+<td>downvotes</td>
+<td>integer</td>
+<td>Number of downvotes on snippet</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Creation time of the snippet</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>Last time when snippet was updated</td>
+</tr>
+<tr>
+<td>private</td>
+<td>boolean</td>
+<td>The snippet is public if &#39;false&#39;</td>
+</tr>
+<tr>
+<td>author_id</td>
+<td>integer</td>
+<td>Id of the author who has posted the snippet</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>list</td>
+<td>All tags on the snippet</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-snippets'>Get All Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets"</span>
 </code></pre>
 <blockquote>
@@ -473,8 +557,9 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 <ul>
 <li>200 - OK - returns all snippets</li>
 </ul>
-<h2 id='get-a-specific-snippet'>Get a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
+<h2 id='get-a-specific-snippet'>Get a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/2"</span>
+  -X POST
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
 <blockquote>
@@ -503,17 +588,12 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 <p>The above command returns JSON structured like this - status 404:</p>
 </blockquote>
 <pre class="highlight plaintext"><code>{
-    "message": "Couldn't find Snippet with 'id'=100"
+    "message": "Sorry, record not found."
 }
 </code></pre>
-<p>This endpoint retrieves a specific snippet. </p>
-
-<aside class="notice" style="font-weight: bold;">
-You can access any private snippet of the authenticated user by passing the authentication token in header.<br> 
-You may not pass the authentication token to get a public snippet.
-</aside>
+<p>This endpoint retrieves a specific snippet. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -728,7 +808,7 @@ If you don't pass the id, you may get an unexpected response.
 <tr>
 <td>private</td>
 <td>boolean</td>
-<td>Creates a public snippet by default. If &#39;true&#39; creates a private snippet.</td>
+<td>If &#39;true&#39; makes a snippet private.</td>
 </tr>
 </tbody></table>
 <h3 id='status-4'>Status</h3>
@@ -840,7 +920,7 @@ Empty search parameter will return all public snippets
 <ul>
 <li>200 - OK</li>
 </ul>
-<h2 id='upvote-a-snippet'>Upvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/1/upvote "Authorization: [user-auth-token]"
+<h2 id='upvote-a-snippet'>Upvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote "Authorization: [user-auth-token]"
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
@@ -880,7 +960,7 @@ Empty search parameter will return all public snippets
 <li>422 - Unprocessible Entity - returns messages.</li>
 <li>200 - OK - successfully upvoted.</li>
 </ul>
-<h2 id='downvote-a-snippet'>Downvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/1/downvote "Authorization: [user-auth-token]"
+<h2 id='downvote-a-snippet'>Downvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote "Authorization: [user-auth-token]"
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
@@ -966,8 +1046,9 @@ Empty search parameter will return all public snippets
 <li>200 - OK - successfully done bookmark operations.</li>
 <li>422 - Unprocessible Entity.</li>
 </ul>
-<h2 id='download-a-snippet'>Download a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download"</span>
+<h2 id='download-a-snippet'>Download a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/download "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/download"</span>
+  -X POST
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
 <blockquote>
@@ -980,9 +1061,9 @@ Empty search parameter will return all public snippets
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint can be used to get a download link of a snippet. For a download link of a private snippet, you need to pass the authentication token in headers.</p>
+<p>This endpoint can be used to get a download link of a snippet. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download</code></p>
+<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1001,8 +1082,51 @@ Empty search parameter will return all public snippets
 <ul>
 <li>200 - OK</li>
 </ul>
-<h1 id='comments'>Comments</h1><h2 id='get-all-comments-on-a-snippet'>Get All Comments on a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets/3/commments
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/commments"</span>
+<h1 id='comments'>Comments</h1>
+<p>Following are the attributes available on the comment entity.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Id of the comment</td>
+</tr>
+<tr>
+<td>text</td>
+<td>text</td>
+<td>Text of the comment</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Creation time of the comment</td>
+</tr>
+<tr>
+<td>updated_at</td>
+<td>datetime</td>
+<td>Last time when comment was updated</td>
+</tr>
+<tr>
+<td>snippet_id</td>
+<td>integer</td>
+<td>Id of the snippet on which the comment is posted</td>
+</tr>
+<tr>
+<td>author_id</td>
+<td>integer</td>
+<td>Id of the user who has posted the comment</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-comments-on-a-snippet'>Get All Comments on a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/all/commments"</span>
+  -X POST
+  -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this - status 200:</p>
@@ -1029,9 +1153,9 @@ Empty search parameter will return all public snippets
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint retrieves all the comments on a public snippets. For fetching comments on a private snippet you need to pass authentication token in headers.</p>
+<p>This endpoint retrieves all the comments on a snippets. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments</code></p>
+<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/all/comments</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1050,8 +1174,9 @@ Empty search parameter will return all public snippets
 <ul>
 <li>200 - OK</li>
 </ul>
-<h2 id='get-a-specific-comment'>Get a specific Comment</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
+<h2 id='get-a-specific-comment'>Get a specific Comment</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/commments/2"</span>
+  -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
 </code></pre>
 <blockquote>
@@ -1068,9 +1193,9 @@ Empty search parameter will return all public snippets
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific comment on a specific snippet. For fetching a specific comment on a private snippet you need to pass authentication token in headers.</p>
+<p>This endpoint retrieves a specific comment on a specific snippet. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/commments/&lt;id&gt;</code></p>
+<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/commments/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1206,7 +1331,78 @@ Obviously, you can update comments created by the authenticated user only.
 <li>204 - No Content - Successfully Updated</li>
 <li>422 - Unprocessable Entity - Errors related to validations</li>
 </ul>
-<h1 id='users'>Users</h1><h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/users
+<h1 id='users'>Users</h1>
+<p>Following are the attributes available on the user entity.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Data Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Id of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Email of the user</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Name of the user</td>
+</tr>
+<tr>
+<td>languages</td>
+<td>string</td>
+<td>Programming Languages user knows</td>
+</tr>
+<tr>
+<td>github_link</td>
+<td>string</td>
+<td>Github profile link of the user</td>
+</tr>
+<tr>
+<td>blog_link</td>
+<td>string</td>
+<td>Blog link of the user</td>
+</tr>
+<tr>
+<td>linkedin_link</td>
+<td>string</td>
+<td>Likedin profile link of the user</td>
+</tr>
+<tr>
+<td>twitter_link</td>
+<td>string</td>
+<td>Twitter profile link of the user</td>
+</tr>
+<tr>
+<td>contributions</td>
+<td>integer</td>
+<td>Contributions of the user</td>
+</tr>
+<tr>
+<td>bio</td>
+<td>text</td>
+<td>About user</td>
+</tr>
+<tr>
+<td>user_image_url</td>
+<td>string</td>
+<td>Link of the user&#39;s profile image</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Creation time of the snippet</td>
+</tr>
+</tbody></table>
+<h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/users
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/users"</span>
 </code></pre>
 <blockquote>
@@ -1420,6 +1616,34 @@ You can get details of an archived user also.
 <td>The &#39;id&#39; of the user.</td>
 </tr>
 </tbody></table>
+<h1 id='errors'>Errors</h1>
+<p>These are some of the general error codes you may encounter.</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Unauthorized -- You are not allowed to access the resource or Invalid credentials.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity -- May be Missing token or Invalid Parameters</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+<p>All these will return a json response with a message attribute, indicating why the error occurred.</p>
 <h1 id='contribute'>Contribute</h1><h2 id='api-clients'>API Clients</h2>
 <p>Currently, there are no API clients for interacting with the codesnippets API.</p>
 
