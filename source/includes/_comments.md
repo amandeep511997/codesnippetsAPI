@@ -1,14 +1,27 @@
 # Comments
 
+Following are the attributes available on the comment entity.
+
+Attribute | Data Type | Description
+--------- | ----------| ------------
+id | integer | Id of the comment
+text | text | Text of the comment
+created_at | datetime | Creation time of the comment
+updated_at | datetime | Last time when comment was updated
+snippet_id | integer | Id of the snippet on which the comment is posted
+author_id | integer | Id of the user who has posted the comment
+
 ## Get All Comments on a Snippet
 
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets/3/commments
+http POST http://codesnippets.org/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/commments"
+curl "http://codesnippets.org/api/v1/snippets/3/all/commments"
+  -X POST
+  -H "Authorization: [user-auth-token]"
 ```
 
 > The above command returns JSON structured like this - status 200:
@@ -37,11 +50,11 @@ curl "http://codesnippets.org/api/v1/snippets/3/commments"
 
 ```
 
-This endpoint retrieves all the comments on a public snippets. For fetching comments on a private snippet you need to pass authentication token in headers.
+This endpoint retrieves all the comments on a snippets. Requires authentication token to be passed in headers.
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets/<snippet_id>/comments`
+`POST http://codesnippets.org/api/v1/snippets/<snippet_id>/all/comments`
 
 ### Query Parameters
 
@@ -55,11 +68,12 @@ snippet_id | integer | The 'id' of the snippet whose comments you want to retrie
 ## Get a specific Comment
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
+http POST http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
 ```
 
 ```shell
 curl "http://codesnippets.org/api/v1/snippets/3/commments/2"
+  -X POST
   -H "Authorization:[user-auth-token]"
 ```
 
@@ -78,12 +92,12 @@ curl "http://codesnippets.org/api/v1/snippets/3/commments/2"
 }
 ```
 
-This endpoint retrieves a specific comment on a specific snippet. For fetching a specific comment on a private snippet you need to pass authentication token in headers.
+This endpoint retrieves a specific comment on a specific snippet. Requires authentication token to be passed in headers.
 
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets/<snippet_id>/commments/<id>`
+`POST http://codesnippets.org/api/v1/snippets/<snippet_id>/commments/<id>`
 
 ### URL Parameters
 

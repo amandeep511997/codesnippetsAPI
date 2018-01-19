@@ -1,5 +1,22 @@
 # Users
 
+Following are the attributes available on the user entity.
+
+Attribute | Data Type | Description
+--------- | ----------| ------------
+id | integer | Id of the user
+email | string | Email of the user
+name | string | Name of the user
+languages | string | Programming Languages user knows
+github_link | string | Github profile link of the user
+blog_link | string | Blog link of the user
+linkedin_link | string | Likedin profile link of the user
+twitter_link | string | Twitter profile link of the user
+contributions | integer | Contributions of the user
+bio | text | About user
+user_image_url | string | Link of the user's profile image
+created_at | datetime | Creation time of the snippet
+
 ## Get All Users
 
 ```http

@@ -33,7 +33,7 @@ curl "http://codesnippets.org/api/v1/auth/login"
 Remember — a happy user is an authenticated user!
 </aside>
 
-To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right once you have the account registered. If you are a new member you can register [here](http://codesnippets.org/users/sign_up).
+To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register [here](http://codesnippets.org/users/sign_up).
 
 ### HTTP Request
 

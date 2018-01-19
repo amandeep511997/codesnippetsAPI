@@ -1,5 +1,25 @@
 # Snippets
 
+Following are the attributes available on the snippet entity.
+
+Attribute | Data Type | Description
+--------- | ----------| ------------
+id | integer | Id of the snippet
+title | string | Title of the snippet
+description | text | Description of the snippet
+code | text | Code of the snippet
+language | string | Programming Language of the snippet
+version | decimal | Version of the language
+bookmark_count | integer | Number of users who have bookmarked
+upvotes | integer | Number of upvotes on snippet
+downvotes | integer | Number of downvotes on snippet
+created_at | datetime | Creation time of the snippet
+updated_at | datetime | Last time when snippet was updated
+private | boolean | The snippet is public if 'false'
+author_id | integer | Id of the author who has posted the snippet
+tags | list | All tags on the snippet
+
+
 ## Get All Snippets
 
 ```http
@@ -73,11 +93,12 @@ per_page | integer | Set this for limiting the number of snippets per page. It i
 ## Get a Specific Snippet
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
+http POST http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
 ```
 
 ```shell
 curl "http://codesnippets.org/api/v1/snippets/2"
+  -X POST
   -H "Authorization: [user-auth-token]"
 ```
 
@@ -108,20 +129,15 @@ curl "http://codesnippets.org/api/v1/snippets/2"
 
 ```
 {
-    "message": "Couldn't find Snippet with 'id'=100"
+    "message": "Sorry, record not found."
 }
 ```
 
-This endpoint retrieves a specific snippet. 
-
-<aside class="notice" style="font-weight: bold;">
-You can access any private snippet of the authenticated user by passing the authentication token in header.<br> 
-You may not pass the authentication token to get a public snippet.
-</aside>
+This endpoint retrieves a specific snippet. Requires authentication token to be passed in headers. 
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets/<id>`
+`POST http://codesnippets.org/api/v1/snippets/<id>`
 
 ### URL Parameters
 
@@ -271,7 +287,7 @@ language| string | The 'language' of the snippet.
 code | text | The 'code' of the snippet to be updated.
 version | decimal | The 'version' of the language of snippet.
 tag_names| string | The 'tags' of the snippet to be created.
-private | boolean | Creates a public snippet by default. If 'true' creates a private snippet.
+private | boolean | If 'true' makes a snippet private.
 
 ### Status
 * 204 - No Content - Successfully Updated
@@ -381,7 +397,7 @@ per_page | integer | Set this for limiting the number of snippets per page. It i
 ## Upvote a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/1/upvote "Authorization: [user-auth-token]"
+http PUT http://codesnippets.org/api/v1/snippets/<id>/upvote "Authorization: [user-auth-token]"
 ```
 
 ```shell
@@ -424,7 +440,7 @@ id | integer | The 'id' of the snippet to be upvoted.
 ## Downvote a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/1/downvote "Authorization: [user-auth-token]"
+http PUT http://codesnippets.org/api/v1/snippets/<id>/downvote "Authorization: [user-auth-token]"
 ```
 
 ```shell
@@ -516,11 +532,12 @@ id | integer | The 'id' of the snippet to be bookmarked.
 ## Download a Snippet
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets/<id>/download "Authorization: [user-auth-token]"
+http POST http://codesnippets.org/api/v1/snippets/3/download "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/<id>/download"
+curl "http://codesnippets.org/api/v1/snippets/3/download"
+  -X POST
   -H "Authorization: [user-auth-token]"
 ```
 
@@ -536,11 +553,11 @@ curl "http://codesnippets.org/api/v1/snippets/<id>/download"
 }
 ```
 
-This endpoint can be used to get a download link of a snippet. For a download link of a private snippet, you need to pass the authentication token in headers.
+This endpoint can be used to get a download link of a snippet. Requires authentication token to be passed in headers.
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets/<id>/download`
+`POST http://codesnippets.org/api/v1/snippets/<id>/download`
 
 ### URL Parameters
 

@@ -15,6 +15,7 @@ includes:
   - snippets
   - comments
   - users
+  - errors
   - contribute
 
 search: true
