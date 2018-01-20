@@ -9,7 +9,9 @@ Contribute
 Create a wrapper for API and add write its usage in documentation. You may write API wrapper in any language you want.
 
 ### Found a bug?
-[Submit an issue](https://github.com/amandeep511997/codesnippetsAPI/issues) to the codesnippetAPI GitHub if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
+[Submit an issue](https://github.com/amandeep511997/codesnippetsAPI/issues) to the codesnippetAPI GitHub if you need any help. 
+
+And, of course, feel free to submit pull requests with bug fixes or changes.
 
 Documentation Style
 --------------------
