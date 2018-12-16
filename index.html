@@ -330,7 +330,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the <a href="http://codesnippets.org/"><strong>codesnippets</strong></a> API! documentation. This is a RESTful API using which you can get information on various snippets and users in our database. You can view code examples in the dark area to the right.</p>
+<p>Welcome to the <a href="https://codesnippets-org.herokuapp.com/"><strong>codesnippets</strong></a> API! documentation. This is a RESTful API using which you can get information on various snippets and users in our database. You can view code examples in the dark area to the right.</p>
 
 <aside class="notice" style="font-weight: bold;"> 
 Our most recent API is V1.
@@ -341,8 +341,8 @@ Our most recent API is V1.
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/auth/login email="[user-email]" password="[user-password]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/auth/login"</span> 
+<pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/auth/login email="[user-email]" password="[user-password]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/auth/login"</span> 
   -X POST
   -d <span class="o">{</span><span class="s2">"email"</span>:<span class="s2">"[user-email]"</span>, <span class="s2">"password"</span>:<span class="s2">"[user-password]"</span><span class="o">}</span>
 </code></pre>
@@ -364,9 +364,9 @@ Our most recent API is V1.
 Remember — a happy user is an authenticated user!
 </aside>
 
-<p>To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register <a href="http://codesnippets.org/users/sign_up">here</a>.</p>
+<p>To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register <a href="https://codesnippets-org.herokuapp.com/users/sign_up">here</a>.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/auth/login</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/auth/login</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -486,8 +486,8 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 <td>All tags on the snippet</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-snippets'>Get All Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets"</span>
+<h2 id='get-all-snippets'>Get All Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET https://codesnippets-org.herokuapp.com/api/v1/snippets
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -531,7 +531,7 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 </span></code></pre>
 <p>This endpoint retrieves all the public snippets.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets</code></p>
+<p><code>GET https://codesnippets-org.herokuapp.com/api/v1/snippets</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p>Parameters can be set for pagination.</p>
 
@@ -557,8 +557,8 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 <ul>
 <li>200 - OK - returns all snippets</li>
 </ul>
-<h2 id='get-a-specific-snippet'>Get a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/2"</span>
+<h2 id='get-a-specific-snippet'>Get a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/2 "Authorization:[user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/2"</span>
   -X POST
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -593,7 +593,7 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 </code></pre>
 <p>This endpoint retrieves a specific snippet. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -613,10 +613,10 @@ You must replace <code>[your-auth-token]</code> with your personal API access to
 <li>200 - OK - returns snippet</li>
 <li>404 - Not Found</li>
 </ul>
-<h2 id='create-a-snippet'>Create a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets 
+<h2 id='create-a-snippet'>Create a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets 
 title="BST traversal" description="Traverse BST in inorder fashion." language="C" code="[code-here]"
 "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets"</span>
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets"</span>
   -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
   -d <span class="o">{</span> <span class="s2">"title"</span>:<span class="s2">"BST traversal"</span>, 
@@ -657,7 +657,7 @@ title="BST traversal" description="Traverse BST in inorder fashion." language="C
 </span></code></pre>
 <p>This endpoint creates a new snippet for authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <aside class="warning" style="font-weight: bold;">
 If you don't pass all the Required parameters, you will get a validation error message, that parameter can't be blank. With status 422 - unprocessible entity. 
@@ -730,8 +730,8 @@ If you don't pass all the Required parameters, you will get a validation error m
 <li>201 - Created</li>
 <li>422 - Unprocessable Entity - Errors related to validations.</li>
 </ul>
-<h2 id='update-a-snippet'>Update a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/3 title="" "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3"</span>
+<h2 id='update-a-snippet'>Update a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/3 title="" "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
   -d <span class="o">{</span> title:<span class="s2">""</span> <span class="o">}</span>
@@ -746,7 +746,7 @@ If you don't pass all the Required parameters, you will get a validation error m
 </span></code></pre>
 <p>This endpoint updates an existing snippet of authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<p><code>PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <aside class="warning" style="font-weight: bold;">
 If you don't pass the id, you may get an unexpected response.
@@ -817,14 +817,14 @@ If you don't pass the id, you may get an unexpected response.
 <li>422 - Unprocessable Entity - Errors related to validations</li>
 <li>404 - Not Found - If snippet with &#39;id&#39; does not exists</li>
 </ul>
-<h2 id='delete-a-specific-snippet'>Delete a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http DELETE http://codesnippets.org/api/v1/snippets/2 "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/2"</span>
+<h2 id='delete-a-specific-snippet'>Delete a Specific Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http DELETE https://codesnippets-org.herokuapp.com/api/v1/snippets/2 "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/2"</span>
   -X DELETE
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
 <p>This endpoint deletes a specific snippet of authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE http://codesnippets.org/api/v1/snippets/&lt;id&gt;</code></p>
+<p><code>DELETE https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <aside class="success" style="font-weight: bold;">
 A successful deletion returns with status 204.
@@ -848,8 +848,8 @@ A successful deletion returns with status 204.
 <li>204 - No Content - Successfully Deleted</li>
 <li>404 - Not Found - If snippet with &#39;id&#39; does not exists</li>
 </ul>
-<h2 id='search-on-snippets'>Search on Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/snippets/search search="BST"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/search?search='BST'"</span>
+<h2 id='search-on-snippets'>Search on Snippets</h2><pre class="highlight http tab-http"><code><span class="err">http GET https://codesnippets-org.herokuapp.com/api/v1/snippets/search search="BST"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/search?search='BST'"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -877,7 +877,7 @@ A successful deletion returns with status 204.
 </span></code></pre>
 <p>This endpoint searches all snippets for the passed parameters.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/snippets/search/&lt;search&gt;</code></p>
+<p><code>GET https://codesnippets-org.herokuapp.com/api/v1/snippets/search/&lt;search&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <aside class="notice" style="font-weight: bold;">
 Empty search parameter will return all public snippets
@@ -920,8 +920,8 @@ Empty search parameter will return all public snippets
 <ul>
 <li>200 - OK</li>
 </ul>
-<h2 id='upvote-a-snippet'>Upvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote"</span>
+<h2 id='upvote-a-snippet'>Upvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/upvote "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/upvote"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -940,7 +940,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint can be used to upvote a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/upvote</code></p>
+<p><code>PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/upvote</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -960,8 +960,8 @@ Empty search parameter will return all public snippets
 <li>422 - Unprocessible Entity - returns messages.</li>
 <li>200 - OK - successfully upvoted.</li>
 </ul>
-<h2 id='downvote-a-snippet'>Downvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote"</span>
+<h2 id='downvote-a-snippet'>Downvote a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/downvote "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/downvote"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -980,7 +980,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint can be used to downvote a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/downvote</code></p>
+<p><code>PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/downvote</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1000,8 +1000,8 @@ Empty search parameter will return all public snippets
 <li>422 - Unprocessible Entity - returns messages.</li>
 <li>200 - OK - successfully downvoted.</li>
 </ul>
-<h2 id='bookmark-a-snippet'>Bookmark a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/bookmark "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/&lt;id&gt;/bookmark"</span>
+<h2 id='bookmark-a-snippet'>Bookmark a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/bookmark "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/bookmark"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -1026,7 +1026,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint can be used to bookmark a snippet by authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;id&gt;/bookmark</code></p>
+<p><code>PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/bookmark</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1046,8 +1046,8 @@ Empty search parameter will return all public snippets
 <li>200 - OK - successfully done bookmark operations.</li>
 <li>422 - Unprocessible Entity.</li>
 </ul>
-<h2 id='download-a-snippet'>Download a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/download "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/download"</span>
+<h2 id='download-a-snippet'>Download a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/download "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3/download"</span>
   -X POST
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -1056,14 +1056,14 @@ Empty search parameter will return all public snippets
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"snippet"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"download_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://codesnippets.org/snippets/3/download"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"download_link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://codesnippets-org.herokuapp.com/snippets/3/download"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint can be used to get a download link of a snippet. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;id&gt;/download</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;id&gt;/download</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1123,8 +1123,8 @@ Empty search parameter will return all public snippets
 <td>Id of the user who has posted the comment</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-comments-on-a-snippet'>Get All Comments on a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/all/commments"</span>
+<h2 id='get-all-comments-on-a-snippet'>Get All Comments on a Snippet</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3/all/commments"</span>
   -X POST
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
 </code></pre>
@@ -1155,7 +1155,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint retrieves all the comments on a snippets. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/all/comments</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;snippet_id&gt;/all/comments</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -1174,8 +1174,8 @@ Empty search parameter will return all public snippets
 <ul>
 <li>200 - OK</li>
 </ul>
-<h2 id='get-a-specific-comment'>Get a specific Comment</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/commments/2"</span>
+<h2 id='get-a-specific-comment'>Get a specific Comment</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3/commments/2"</span>
   -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
 </code></pre>
@@ -1195,7 +1195,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint retrieves a specific comment on a specific snippet. Requires authentication token to be passed in headers.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/commments/&lt;id&gt;</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;snippet_id&gt;/commments/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1220,8 +1220,8 @@ Empty search parameter will return all public snippets
 <li>200 - OK</li>
 <li>404 - Not Found</li>
 </ul>
-<h2 id='create-a-comment'>Create a Comment</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/snippets/3/comments text="This snippet is cool!" "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/comments"</span>
+<h2 id='create-a-comment'>Create a Comment</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments text="This snippet is cool!" "Authorization:[user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments"</span>
   -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
   -d <span class="o">{</span> <span class="s2">"text"</span>:<span class="s2">"This snippet is cool!"</span> <span class="o">}</span>
@@ -1250,7 +1250,7 @@ Empty search parameter will return all public snippets
 </span></code></pre>
 <p>This endpoint creates a new comment on a snippet for authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;snippet_id&gt;/comments</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <aside class="warning" style="font-weight: bold;">
 If you don't pass the text parameter, you will get a validation error message, that text can't be blank. With status 422 - unprocessible entity. 
@@ -1281,8 +1281,8 @@ If you don't pass the text parameter, you will get a validation error message, t
 <li>201 - Created</li>
 <li>422 - Unprocessable Entity - Errors related to validations.</li>
 </ul>
-<h2 id='update-a-comment'>Update a Comment</h2><pre class="highlight http tab-http"><code><span class="err">http PUT http://codesnippets.org/api/v1/snippets/3/comments/4 text="" "Authorization: [user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/snippets/3/comments/4"</span>
+<h2 id='update-a-comment'>Update a Comment</h2><pre class="highlight http tab-http"><code><span class="err">http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments/4 text="" "Authorization: [user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments/4"</span>
   -X PUT
   -H <span class="s2">"Authorization: [user-auth-token]"</span>
   -d <span class="o">{</span> text:<span class="s2">""</span> <span class="o">}</span>
@@ -1297,7 +1297,7 @@ If you don't pass the text parameter, you will get a validation error message, t
 </span></code></pre>
 <p>This endpoint updates an existing comment on a snippet of authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT http://codesnippets.org/api/v1/snippets/&lt;snippet_id&gt;/comments/&lt;id&gt;</code></p>
+<p><code>PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/&lt;snippet_id&gt;/comments/&lt;id&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <aside class="notice" style="font-weight: bold;">
 Obviously, you can update comments created by the authenticated user only.
@@ -1402,8 +1402,8 @@ Obviously, you can update comments created by the authenticated user only.
 <td>Creation time of the snippet</td>
 </tr>
 </tbody></table>
-<h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/users
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/users"</span>
+<h2 id='get-all-users'>Get All Users</h2><pre class="highlight http tab-http"><code><span class="err">http GET https://codesnippets-org.herokuapp.com/api/v1/users
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/users"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1443,7 +1443,7 @@ Obviously, you can update comments created by the authenticated user only.
 </span></code></pre>
 <p>This endpoint retrieves all the registered users, excluding the archived users, in decreasing order of their contributions. </p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/users</code></p>
+<p><code>GET https://codesnippets-org.herokuapp.com/api/v1/users</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p>Parameters can be set for pagination.</p>
 
@@ -1465,8 +1465,8 @@ Obviously, you can update comments created by the authenticated user only.
 <td>Set this for limiting the number of users per page. It is None by default.</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-user'>Get a Specific User</h2><pre class="highlight http tab-http"><code><span class="err">http GET http://codesnippets.org/api/v1/users/2
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/users/2"</span>
+<h2 id='get-a-specific-user'>Get a Specific User</h2><pre class="highlight http tab-http"><code><span class="err">http GET https://codesnippets-org.herokuapp.com/api/v1/users/2
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/users/2"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1495,7 +1495,7 @@ Obviously, you can update comments created by the authenticated user only.
 You can get details of an archived user also.
 </aside>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://codesnippets.org/api/v1/users/&lt;id&gt;</code></p>
+<p><code>GET https://codesnippets-org.herokuapp.com/api/v1/users/&lt;id&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1510,8 +1510,8 @@ You can get details of an archived user also.
 <td>The &#39;id&#39; of the user.</td>
 </tr>
 </tbody></table>
-<h2 id='get-snippets-of-user'>Get Snippets of User</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/users/2/snippets "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/users/2/snippets"</span>
+<h2 id='get-snippets-of-user'>Get Snippets of User</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/users/2/snippets "Authorization:[user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/users/2/snippets"</span>
   -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
 </code></pre>
@@ -1557,7 +1557,7 @@ You can get details of an archived user also.
 </span></code></pre>
 <p>This endpoint retrieves all public snippets of a user. If the requested user is authenticated user then this request returns both public and private snippets of the user. Requires authentication token to be passed in headers.  </p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/users/&lt;id&gt;/snippets</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/users/&lt;id&gt;/snippets</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -1572,8 +1572,8 @@ You can get details of an archived user also.
 <td>The &#39;id&#39; of the user.</td>
 </tr>
 </tbody></table>
-<h2 id='get-bookmarks-of-user'>Get Bookmarks of User</h2><pre class="highlight http tab-http"><code><span class="err">http POST http://codesnippets.org/api/v1/users/2/bookmarks "Authorization:[user-auth-token]"
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://codesnippets.org/api/v1/users/2/bookmarks"</span>
+<h2 id='get-bookmarks-of-user'>Get Bookmarks of User</h2><pre class="highlight http tab-http"><code><span class="err">http POST https://codesnippets-org.herokuapp.com/api/v1/users/2/bookmarks "Authorization:[user-auth-token]"
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://codesnippets-org.herokuapp.com/api/v1/users/2/bookmarks"</span>
   -X POST
   -H <span class="s2">"Authorization:[user-auth-token]"</span>
 </code></pre>
@@ -1601,7 +1601,7 @@ You can get details of an archived user also.
 </span></code></pre>
 <p>This endpoint retrieves all the bookmarks of the authenticated user. Requires authentication token to be passed in headers. </p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST http://codesnippets.org/api/v1/users/&lt;id&gt;/bookmarks</code></p>
+<p><code>POST https://codesnippets-org.herokuapp.com/api/v1/users/&lt;id&gt;/bookmarks</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
