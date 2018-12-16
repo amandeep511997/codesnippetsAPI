@@ -15,11 +15,11 @@ author_id | integer | Id of the user who has posted the comment
 
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/all/commments "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/all/commments"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3/all/commments"
   -X POST
   -H "Authorization: [user-auth-token]"
 ```
@@ -54,7 +54,7 @@ This endpoint retrieves all the comments on a snippets. Requires authentication 
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets/<snippet_id>/all/comments`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets/<snippet_id>/all/comments`
 
 ### Query Parameters
 
@@ -68,11 +68,11 @@ snippet_id | integer | The 'id' of the snippet whose comments you want to retrie
 ## Get a specific Comment
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/commments/2 "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/commments/2"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3/commments/2"
   -X POST
   -H "Authorization:[user-auth-token]"
 ```
@@ -97,7 +97,7 @@ This endpoint retrieves a specific comment on a specific snippet. Requires authe
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets/<snippet_id>/commments/<id>`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets/<snippet_id>/commments/<id>`
 
 ### URL Parameters
 
@@ -113,11 +113,11 @@ id | integer | The 'id' of the comment you want to retrieve.
 ## Create a Comment
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets/3/comments text="This snippet is cool!" "Authorization:[user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments text="This snippet is cool!" "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/comments"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments"
   -X POST
   -H "Authorization:[user-auth-token]"
   -d { "text":"This snippet is cool!" }
@@ -151,7 +151,7 @@ This endpoint creates a new comment on a snippet for authenticated user. Require
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets/<snippet_id>/comments`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets/<snippet_id>/comments`
 
 ### URL Parameters
 
@@ -174,11 +174,11 @@ text | text | Content of the comment to be created.
 ## Update a Comment
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/3/comments/4 text="" "Authorization: [user-auth-token]"
+http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments/4 text="" "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/comments/4"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3/comments/4"
   -X PUT
   -H "Authorization: [user-auth-token]"
   -d { text:"" }
@@ -197,7 +197,7 @@ This endpoint updates an existing comment on a snippet of authenticated user. Re
 
 ### HTTP Request
 
-`PUT http://codesnippets.org/api/v1/snippets/<snippet_id>/comments/<id>`
+`PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<snippet_id>/comments/<id>`
 
 ### URL Parameters
 

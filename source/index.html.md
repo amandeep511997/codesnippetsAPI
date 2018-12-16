@@ -23,7 +23,7 @@ search: true
 
 # Introduction
 
-Welcome to the [**codesnippets**](http://codesnippets.org/) API! documentation. This is a RESTful API using which you can get information on various snippets and users in our database. You can view code examples in the dark area to the right.
+Welcome to the [**codesnippets**](https://codesnippets-org.herokuapp.com/) API! documentation. This is a RESTful API using which you can get information on various snippets and users in our database. You can view code examples in the dark area to the right.
 
 <aside class="notice" style="font-weight: bold;"> 
 Our most recent API is V1.

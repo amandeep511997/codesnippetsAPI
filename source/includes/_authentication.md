@@ -3,11 +3,11 @@
 > To authorize, use this code:
 
 ```http
-http POST http://codesnippets.org/api/v1/auth/login email="[user-email]" password="[user-password]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/auth/login email="[user-email]" password="[user-password]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/auth/login" 
+curl "https://codesnippets-org.herokuapp.com/api/v1/auth/login" 
   -X POST
   -d {"email":"[user-email]", "password":"[user-password]"}
 ```
@@ -33,11 +33,11 @@ curl "http://codesnippets.org/api/v1/auth/login"
 Remember — a happy user is an authenticated user!
 </aside>
 
-To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register [here](http://codesnippets.org/users/sign_up).
+To authenticate against codesnippets, you need an API access token, which you can get by following the code example given on the right, once you have the account registered. If you are a new member you can register [here](https://codesnippets-org.herokuapp.com/users/sign_up).
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/auth/login`
+`POST https://codesnippets-org.herokuapp.com/api/v1/auth/login`
 
 ### Query Parameters
 

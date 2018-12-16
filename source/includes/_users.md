@@ -20,11 +20,11 @@ created_at | datetime | Creation time of the snippet
 ## Get All Users
 
 ```http
-http GET http://codesnippets.org/api/v1/users
+http GET https://codesnippets-org.herokuapp.com/api/v1/users
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/users"
+curl "https://codesnippets-org.herokuapp.com/api/v1/users"
 ```
 
 
@@ -69,7 +69,7 @@ This endpoint retrieves all the registered users, excluding the archived users, 
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/users`
+`GET https://codesnippets-org.herokuapp.com/api/v1/users`
 
 ### Query Parameters
 
@@ -84,11 +84,11 @@ per_page | integer | Set this for limiting the number of users per page. It is N
 ## Get a Specific User
 
 ```http
-http GET http://codesnippets.org/api/v1/users/2
+http GET https://codesnippets-org.herokuapp.com/api/v1/users/2
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/users/2"
+curl "https://codesnippets-org.herokuapp.com/api/v1/users/2"
 ```
 
 > The above command returns JSON structured like this:
@@ -121,7 +121,7 @@ You can get details of an archived user also.
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/users/<id>`
+`GET https://codesnippets-org.herokuapp.com/api/v1/users/<id>`
 
 ### URL Parameters
 
@@ -132,11 +132,11 @@ id | integer | The 'id' of the user.
 ## Get Snippets of User
 
 ```http
-http POST http://codesnippets.org/api/v1/users/2/snippets "Authorization:[user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/users/2/snippets "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/users/2/snippets"
+curl "https://codesnippets-org.herokuapp.com/api/v1/users/2/snippets"
   -X POST
   -H "Authorization:[user-auth-token]"
 ```
@@ -186,7 +186,7 @@ This endpoint retrieves all public snippets of a user. If the requested user is 
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/users/<id>/snippets`
+`POST https://codesnippets-org.herokuapp.com/api/v1/users/<id>/snippets`
 
 ### URL Parameters
 
@@ -197,11 +197,11 @@ id | integer | The 'id' of the user.
 ## Get Bookmarks of User
 
 ```http
-http POST http://codesnippets.org/api/v1/users/2/bookmarks "Authorization:[user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/users/2/bookmarks "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/users/2/bookmarks"
+curl "https://codesnippets-org.herokuapp.com/api/v1/users/2/bookmarks"
   -X POST
   -H "Authorization:[user-auth-token]"
 ```
@@ -233,7 +233,7 @@ This endpoint retrieves all the bookmarks of the authenticated user. Requires au
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/users/<id>/bookmarks`
+`POST https://codesnippets-org.herokuapp.com/api/v1/users/<id>/bookmarks`
 
 ### URL Parameters
 

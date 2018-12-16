@@ -23,11 +23,11 @@ tags | list | All tags on the snippet
 ## Get All Snippets
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets
+http GET https://codesnippets-org.herokuapp.com/api/v1/snippets
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets"
 ```
 
 
@@ -76,7 +76,7 @@ This endpoint retrieves all the public snippets.
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets`
+`GET https://codesnippets-org.herokuapp.com/api/v1/snippets`
 
 ### Query Parameters
 
@@ -93,11 +93,11 @@ per_page | integer | Set this for limiting the number of snippets per page. It i
 ## Get a Specific Snippet
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets/2 "Authorization:[user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/2 "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/2"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/2"
   -X POST
   -H "Authorization: [user-auth-token]"
 ```
@@ -137,7 +137,7 @@ This endpoint retrieves a specific snippet. Requires authentication token to be 
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets/<id>`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>`
 
 ### URL Parameters
 
@@ -153,13 +153,13 @@ id | integer | The 'id' of the snippet to retrieve.
 ## Create a Snippet
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets 
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets 
 title="BST traversal" description="Traverse BST in inorder fashion." language="C" code="[code-here]"
 "Authorization:[user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets"
   -X POST
   -H "Authorization:[user-auth-token]"
   -d { "title":"BST traversal", 
@@ -205,7 +205,7 @@ This endpoint creates a new snippet for authenticated user. Requires authenticat
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets`
 
 ### URL Parameters
 
@@ -242,11 +242,11 @@ private | boolean | Creates a public snippet by default. If 'true' creates a pri
 ## Update a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/3 title="" "Authorization: [user-auth-token]"
+http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/3 title="" "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3"
   -X PUT
   -H "Authorization: [user-auth-token]"
   -d { title:"" }
@@ -265,7 +265,7 @@ This endpoint updates an existing snippet of authenticated user. Requires authen
 
 ### HTTP Request
 
-`PUT http://codesnippets.org/api/v1/snippets/<id>`
+`PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>`
 
 ### URL Parameters
 
@@ -297,12 +297,12 @@ private | boolean | If 'true' makes a snippet private.
 ## Delete a Specific Snippet
 
 ```http
-http DELETE http://codesnippets.org/api/v1/snippets/2 "Authorization: [user-auth-token]"
+http DELETE https://codesnippets-org.herokuapp.com/api/v1/snippets/2 "Authorization: [user-auth-token]"
 ```
 
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/2"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/2"
   -X DELETE
   -H "Authorization: [user-auth-token]"
 ```
@@ -311,7 +311,7 @@ This endpoint deletes a specific snippet of authenticated user. Requires authent
 
 ### HTTP Request
 
-`DELETE http://codesnippets.org/api/v1/snippets/<id>`
+`DELETE https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>`
 
 ### URL Parameters
 
@@ -330,12 +330,12 @@ id | integer | The 'id' of the snippet to be deleted.
 ## Search on Snippets
 
 ```http
-http GET http://codesnippets.org/api/v1/snippets/search search="BST"
+http GET https://codesnippets-org.herokuapp.com/api/v1/snippets/search search="BST"
 ```
 
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/search?search='BST'"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/search?search='BST'"
 ```
 
 
@@ -368,7 +368,7 @@ This endpoint searches all snippets for the passed parameters.
 
 ### HTTP Request
 
-`GET http://codesnippets.org/api/v1/snippets/search/<search>`
+`GET https://codesnippets-org.herokuapp.com/api/v1/snippets/search/<search>`
 
 ### URL Parameters
 
@@ -397,11 +397,11 @@ per_page | integer | Set this for limiting the number of snippets per page. It i
 ## Upvote a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/<id>/upvote "Authorization: [user-auth-token]"
+http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/upvote "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/<id>/upvote"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/upvote"
   -X PUT
   -H "Authorization: [user-auth-token]"
 ```
@@ -425,7 +425,7 @@ This endpoint can be used to upvote a snippet by authenticated user. Requires au
 
 ### HTTP Request
 
-`PUT http://codesnippets.org/api/v1/snippets/<id>/upvote`
+`PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/upvote`
 
 ### URL Parameters
 
@@ -440,11 +440,11 @@ id | integer | The 'id' of the snippet to be upvoted.
 ## Downvote a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/<id>/downvote "Authorization: [user-auth-token]"
+http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/downvote "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/<id>/downvote"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/downvote"
   -X PUT
   -H "Authorization: [user-auth-token]"
 ```
@@ -467,7 +467,7 @@ This endpoint can be used to downvote a snippet by authenticated user. Requires 
 
 ### HTTP Request
 
-`PUT http://codesnippets.org/api/v1/snippets/<id>/downvote`
+`PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/downvote`
 
 ### URL Parameters
 
@@ -483,11 +483,11 @@ id | integer | The 'id' of the snippet to be downvoted.
 ## Bookmark a Snippet
 
 ```http
-http PUT http://codesnippets.org/api/v1/snippets/<id>/bookmark "Authorization: [user-auth-token]"
+http PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/bookmark "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/<id>/bookmark"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/bookmark"
   -X PUT
   -H "Authorization: [user-auth-token]"
 ```
@@ -517,7 +517,7 @@ This endpoint can be used to bookmark a snippet by authenticated user. Requires 
 
 ### HTTP Request
 
-`PUT http://codesnippets.org/api/v1/snippets/<id>/bookmark`
+`PUT https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/bookmark`
 
 ### URL Parameters
 
@@ -532,11 +532,11 @@ id | integer | The 'id' of the snippet to be bookmarked.
 ## Download a Snippet
 
 ```http
-http POST http://codesnippets.org/api/v1/snippets/3/download "Authorization: [user-auth-token]"
+http POST https://codesnippets-org.herokuapp.com/api/v1/snippets/3/download "Authorization: [user-auth-token]"
 ```
 
 ```shell
-curl "http://codesnippets.org/api/v1/snippets/3/download"
+curl "https://codesnippets-org.herokuapp.com/api/v1/snippets/3/download"
   -X POST
   -H "Authorization: [user-auth-token]"
 ```
@@ -547,7 +547,7 @@ curl "http://codesnippets.org/api/v1/snippets/3/download"
 ```json
 {
     "snippet": {
-        "download_link": "http://codesnippets.org/snippets/3/download",
+        "download_link": "https://codesnippets-org.herokuapp.com/snippets/3/download",
         "id": "3"
     }
 }
@@ -557,7 +557,7 @@ This endpoint can be used to get a download link of a snippet. Requires authenti
 
 ### HTTP Request
 
-`POST http://codesnippets.org/api/v1/snippets/<id>/download`
+`POST https://codesnippets-org.herokuapp.com/api/v1/snippets/<id>/download`
 
 ### URL Parameters
 
